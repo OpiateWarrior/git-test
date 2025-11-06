@@ -6,7 +6,8 @@ import { formatMoney } from '../../utils/money';
 import './CheckoutPage.css';
 
 export function CheckoutPage({ cart }) {
-  const [deliveryOptions, setDeliveryOptions] = useState();
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+  
 
   useEffect(() => {
     axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
@@ -27,7 +28,7 @@ export function CheckoutPage({ cart }) {
 
         <div className="checkout-grid">
           <div className="order-summary">
-            {deliveryOptions.lenght > 0 && cart.map((cartItem) => {
+            {deliveryOptions.length > 0 && cart.map((cartItem) => {
               const selectedDeliveryOption = deliveryOptions
                 .find((deliveryOption) => {
                   return deliveryOption.id === cartItem.deliveryOptionId;
