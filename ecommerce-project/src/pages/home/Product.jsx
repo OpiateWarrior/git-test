@@ -10,7 +10,7 @@ export function Product({ product, loadCart }) {
     await axios.post('/api/cart-items', {
       productId: product.id,
       quantity: quantity
-    });
+    }); 
     await loadCart();
   };
 
