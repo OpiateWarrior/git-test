@@ -9,7 +9,7 @@ export function PaymentSummary({paymentSummary, loadCart}) {
     await axios.post('/api/orders');
     await loadCart();
     navigate('/orders')
-  };
+  }; 
 
   return (
     <div className="payment-summary">

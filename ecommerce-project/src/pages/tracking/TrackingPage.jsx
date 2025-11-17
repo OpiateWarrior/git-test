@@ -7,6 +7,7 @@ import './TrackingPage.css';
 
 export function TrackingPage({ cart }) {
   const { orderId, productId } = useParams();
+
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
@@ -64,7 +65,9 @@ export function TrackingPage({ cart }) {
             Quantity: {orderProduct.quantity}
           </div>
 
-          <img className="product-image" src={orderProduct.product.image} />
+          <div className="product-image-container">
+              <img src={orderProduct.product.image} />
+          </div>
 
           <div className="progress-labels-container">
             <div className={`progress-label ${isPreparing && 'current-status'}`}>
